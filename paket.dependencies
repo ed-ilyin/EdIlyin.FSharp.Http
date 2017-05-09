@@ -1,6 +1,9 @@
 source https://nuget.org/api/v2
 
+nuget EdIlyin.FSharp.Boxcar
+nuget EdIlyin.FSharp.Elm.Core
 nuget FSharp.Core redirects: force
+nuget FSharp.Data
 
 group Build
   source https://nuget.org/api/v2

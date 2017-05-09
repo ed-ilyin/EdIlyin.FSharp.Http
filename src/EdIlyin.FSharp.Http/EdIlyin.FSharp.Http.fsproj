@@ -9,7 +9,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a1f9a366-2239-4c6a-abda-09795f3856e1</ProjectGuid>
     <OutputType>Library</OutputType>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -20,6 +20,7 @@
     <OutputPath>.\bin\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
+    <DocumentationFile>.\bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
     <OtherFlags>--warnon:1182</OtherFlags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -29,6 +30,7 @@
     <OutputPath>.\bin\Release</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
+    <DocumentationFile>.\bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
     <OtherFlags>--warnon:1182</OtherFlags>
   </PropertyGroup>
   <ItemGroup>
@@ -99,10 +101,10 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7')">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7')">
       <ItemGroup>
         <Reference Include="EdIlyin.FSharp.Boxcar">
-          <HintPath>..\..\packages\EdIlyin.FSharp.Boxcar\lib\net462\EdIlyin.FSharp.Boxcar.dll</HintPath>
+          <HintPath>..\..\packages\EdIlyin.FSharp.Boxcar\lib\net461\EdIlyin.FSharp.Boxcar.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -110,10 +112,10 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7')">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7')">
       <ItemGroup>
         <Reference Include="EdIlyin.FSharp.Elm.Core">
-          <HintPath>..\..\packages\EdIlyin.FSharp.Elm.Core\lib\net462\EdIlyin.FSharp.Elm.Core.dll</HintPath>
+          <HintPath>..\..\packages\EdIlyin.FSharp.Elm.Core\lib\net461\EdIlyin.FSharp.Elm.Core.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

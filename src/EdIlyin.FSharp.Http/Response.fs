@@ -5,18 +5,8 @@ open EdIlyin.FSharp.Boxcar
 open Hopac
 open FSharp.Data
 
-/// Documentation for my library
-///
-/// ## Example
-///
-///     let h = Library.hello 1
-///     printfn "%d" h
-///
-module Response = 
-    /// Returns 42
-    ///
-    /// ## Parameters
-    ///  - `num` - whatever
+
+module Response =
     let statusCode expecting =
         Decode.satisfy
             (fun (r:HttpResponse) -> r => Some r.StatusCode)

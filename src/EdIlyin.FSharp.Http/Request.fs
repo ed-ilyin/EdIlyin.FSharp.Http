@@ -88,3 +88,13 @@ module Request =
 
     let put parser endpoint connection =
         Json.Encode.null' |> putJson parser endpoint connection
+
+
+    let delete decoder endpoint connection =
+        Http.AsyncRequest
+            ( httpMethod = HttpMethod.Delete
+            , url = connection.host + endpoint
+            , headers = connection.headers
+            , cookieContainer = connection.jar
+            )
+            |> unpack decoder

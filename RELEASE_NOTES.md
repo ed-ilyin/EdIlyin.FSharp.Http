@@ -1,4 +1,7 @@
-### 0.0.4 - June 29 2017
+### 0.0.5 - June 29 2017
+* adds delete method
+
+#### 0.0.4 - June 29 2017
 * adds Http.Request.connection function
 
 #### 0.0.3 - June 29 2017

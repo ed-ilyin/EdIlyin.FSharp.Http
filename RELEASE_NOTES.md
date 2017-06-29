@@ -1,4 +1,7 @@
-### 0.0.3 - June 29 2017
+### 0.0.4 - June 29 2017
+* adds Http.Request.connection function
+
+#### 0.0.3 - June 29 2017
 * Adds Request module
 
 #### 0.0.2 - May 10 2017

@@ -9,10 +9,18 @@ open EdIlyin.FSharp.Http.Response
 type Connection = {
     host: string
     headers: seq<string * string>
-    cookieContainer: System.Net.CookieContainer
+    jar: System.Net.CookieContainer
 }
 
+
 module Request =
+    let connection host headers jar = {
+        host = host
+        headers = headers
+        jar = jar
+    }
+
+
     let post parser endpoint connection body =
         let url = connection.host + endpoint
         do printfn "POST %s" url
@@ -28,7 +36,7 @@ module Request =
         Http.AsyncRequest
             ( url = connection.host + endpoint
             , headers = connection.headers
-            , cookieContainer = connection.cookieContainer
+            , cookieContainer = connection.jar
             , body = body
             )
             |> unpack parser
@@ -59,7 +67,7 @@ module Request =
         Http.AsyncRequest
             ( url = connection.host + endpoint
             , headers = connection.headers
-            , cookieContainer = connection.cookieContainer
+            , cookieContainer = connection.jar
             )
             |> unpack parser
 
@@ -72,7 +80,7 @@ module Request =
             ( httpMethod = HttpMethod.Put
             , url = connection.host + endpoint
             , headers = connection.headers
-            , cookieContainer = connection.cookieContainer
+            , cookieContainer = connection.jar
             , body = body
             )
             |> unpack parser

@@ -1,3 +1,6 @@
+### 0.1.0 - Jule 6 2017
+* moves to built-in Result
+
 ### 0.0.5 - June 29 2017
 * adds delete method
 

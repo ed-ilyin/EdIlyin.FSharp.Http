@@ -8,35 +8,42 @@ open FSharp.Data
 
 module Response =
     let statusCode expecting =
-        Decode.satisfy
-            (fun (r:HttpResponse) -> r => Some r.StatusCode)
-            (fun sc -> if sc = expecting then Ok sc else Err sc)
-            (sprintf "status code %A" expecting)
+        let label = sprintf "a status code %A" expecting
+
+        Decode.primitive label
+            (fun (r:HttpResponse) ->
+                let sc = r.StatusCode
+                if sc = expecting then Decode.Decoded sc
+                else label => r |> Decode.ExpectingButGot
+            )
 
 
     let bodyText =
-        Decode.satisfy (fun (r:HttpResponse) -> r, Some r.Body)
-            (fun body ->
-                match body with
-                    | Binary _ -> Err "binary body"
-                    | Text text -> Ok text
+        let label = "text body"
+
+        Decode.primitive label
+            (fun (r:HttpResponse) ->
+                match r.Body with
+                    | Binary _ -> label => r |> Decode.ExpectingButGot
+                    | Text text -> Decode.Decoded text
             )
-            "text body"
 
 
     let unpack parser async =
         boxcar {
             let! response = Job.fromAsync async |> Boxcar.catch
 
-            return!
+            let! result =
                 try
                     do printfn "Response %i from %s"
                         response.StatusCode
                         response.ResponseUrl
 
-                    Decode.parseAny parser response
+                    Decode.decode parser response
 
                 with | exn ->
-                    sprintf "%s\n%A" exn.Message response |> Err
+                    sprintf "%s\n%A" exn.Message response |> Error
                 |> Boxcar.fromResult
+
+            return result
         }

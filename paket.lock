@@ -6,10 +6,10 @@ NUGET
     Chiron (6.2.1)
       Aether (>= 8.0.2 < 9.0)
       FParsec (>= 1.0 < 2.0)
-    EdIlyin.FSharp.Boxcar (0.0.6)
+    EdIlyin.FSharp.Boxcar (0.0.7)
       EdIlyin.FSharp.Elm.Core
       Hopac
-    EdIlyin.FSharp.Elm.Core (2.1)
+    EdIlyin.FSharp.Elm.Core (2.1.1)
       Chiron
       FSharp.Core
     FParsec (1.0.2)
@@ -583,7 +583,7 @@ NUGET
 GROUP Build
 NUGET
   remote: https://www.nuget.org/api/v2
-    FAKE (4.62.1)
+    FAKE (4.62.3)
     FSharp.Compiler.Service (2.0.0.6)
     FSharp.Formatting (2.14.4)
       FSharp.Compiler.Service (2.0.0.6)
@@ -601,7 +601,7 @@ NUGET
     SourceLink.Fake (1.1)
 GITHUB
   remote: fsharp/FAKE
-    modules/Octokit/Octokit.fsx (b5933798c1944051bf358a460fcdc8ffbd678dfc)
+    modules/Octokit/Octokit.fsx (09b5bc7ac1602dc3c3d55eeaee185363209b73cf)
       Octokit (>= 0.20)
 GROUP Test
 NUGET
